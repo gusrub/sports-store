@@ -1,0 +1,40 @@
+<h2>Featured Products</h2>
+
+<ul class="bxslider">
+  <% @featured.each do |product| %>
+    <li>
+      <%= image_tag(product.product_variants.first.picture.url, class: "featured") %>
+      <h3><%= product.name %></strong></h3>
+      <p><%= product.description %></p>
+    </li>
+  <% end %>
+</ul>
+
+<%= form_tag("/", method: "get", class: "search-form") do %>
+  <%= text_field_tag(:search, @search, placeholder: 'search entire store') %>
+<% end %>
+
+<div id="sorting">
+  <strong>Sort by: </strong>
+  <%= link_to("name", "/?sort=name") %> |
+  <%= link_to("price", "/?sort=price") %>
+</div>
+
+<% @variants.each do |variant| %>
+<div class="product-container">
+  <div class="thumb">
+    <%= image_tag(variant.picture.url, class: "featured") %>
+  </div>
+  <div class="desc">
+  <p><strong><%= variant.product.name.truncate(35) %></strong></p>
+  <p><%= variant.product.description.truncate(35) %></p>
+  <p class="<%= variant.discount > 0 ? 'discount' : '' %>">Reg price: <%= number_to_currency(variant.price) %></p>
+  <% if variant.discount > 0 %>
+  <p class="sale">Sale price: <%= number_to_currency(variant.final_price) %> <small>(-<%= number_to_percentage(variant.discount, precision: 0) %>)</small></p>
+  <% else %>
+  <p class="sale">&nbsp;</p>
+  <% end %> 
+  <small><%= link_to(variant.product.category.name, "/?cat=#{variant.product.category.id}") %></small>   
+  </div>
+</div>
+<% end %>

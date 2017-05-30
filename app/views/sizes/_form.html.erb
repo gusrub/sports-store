@@ -1,0 +1,25 @@
+<%= form_for(@size, html: {class: "edit-form"}) do |f| %>
+  <% if @size.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@size.errors.count, "error") %> prohibited this size from being saved:</h2>
+
+      <ul>
+      <% @size.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :code %>
+    <%= f.text_field :code %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,52 @@
+img.featured {
+  max-width: 250px;
+  float: left;
+  display: block;
+}
+
+.search-form {
+  width: 100%;
+  margin: 1em 0;
+}
+
+.search-form input {
+  width: 100%;
+  box-sizing : border-box;
+}
+
+.product-container {
+  background: #fff;
+  width: 20%;
+  float: left;
+  display: block;
+  margin: 1%;
+  padding: 1%;
+  border: 1px solid #ccc;
+}
+.product-container a {
+  color: #555;
+}
+.product-container img {
+  width: 75px;
+  height: 75px;
+}
+.thumb {
+  float: left;
+  width: 25%;
+}
+.desc {
+  float: right;
+  width: 75%;
+}
+.product-container p {
+  margin-bottom: 1em;
+}
+p.sale {
+  color: red;
+}
+p.discount {
+  text-decoration: line-through;
+}
+#sorting a {
+  color: #555;
+}

@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Product Variants</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Product</th>
+      <th>Size</th>
+      <th>Color</th>
+      <th>Stock</th>
+      <th>Price</th>
+      <th>Discount</th>
+      <th>Final Price</th>
+      <th>SKU</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @product_variants.each do |product_variant| %>
+      <tr>
+        <td><%= product_variant.id %></td>
+        <td><%= product_variant.product.name %></td>
+        <td><%= product_variant.size.try(:name) %></td>
+        <td><%= product_variant.color.try(:name) %></td>
+        <td><%= product_variant.stock %></td>
+        <td><%= number_to_currency(product_variant.price) %></td>
+        <td><%= number_to_percentage(product_variant.discount, precision: 2) %></td>
+        <td><%= number_to_currency(product_variant.final_price) %></td>
+        <td><%= product_variant.sku %></td>
+        <td class="actions">
+          <%= link_to 'edit', product_variant_path(product_variant), class: "button" %>
+          <%= link_to 'remove', product_variant, method: :delete, data: { confirm: 'Are you sure?' }, class: "button" %>    
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="pagination">
+  <ul>
+    <% 1.upto(ProductVariant.pages) do |page_number| %>
+    <li><%= link_to page_number, product_variants_path(page: page_number) %></li>
+    <% end %>
+  </ul>  
+</div>
+<br>
+
+<%= link_to 'new variant', new_product_variant_path, class: "button" %>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Storefront</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id="main-menu">
+  <ul>
+    <li><%= link_to("Sports Store", root_path) %></li>
+    <li><a><b>|</b></a></li>
+    <li><%= link_to("Products", products_path) %></li>
+    <li><%= link_to("Variants", product_variants_path) %></li>
+    <li><%= link_to("Colors", colors_path) %></li>
+    <li><%= link_to("Sizes", sizes_path) %></li>
+    <li><%= link_to("Categories", categories_path) %></li>
+  </ul>
+</div>
+<div id="content">
+  <%= yield %>  
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Colors</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @colors.each do |color| %>
+      <tr>
+        <td><%= color.id %></td>
+        <td><%= color.name %></td>
+        <td class="actions">
+          <%= link_to 'edit', color_path(color), class: "button" %>
+          <%= link_to 'remove', color, method: :delete, data: { confirm: 'Are you sure?' }, class: "button" %>
+        </td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="pagination">
+  <ul>
+    <% 1.upto(Color.pages) do |page_number| %>
+    <li><%= link_to page_number, colors_path(page: page_number) %></li>
+    <% end %>
+  </ul>  
+</div>
+<br>
+
+<%= link_to 'new color', new_color_path, class: "button" %>

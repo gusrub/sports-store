@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Categories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%= category.id %></td>
+        <td><%= category.name %></td>
+        <td class="actions">
+          <%= link_to 'edit', category_path(category), class: "button" %>
+          <%= link_to 'remove', category, method: :delete, data: { confirm: 'Are you sure?' }, class: "button" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="pagination">
+  <ul>
+    <% 1.upto(Category.pages) do |page_number| %>
+    <li><%= link_to page_number, categories_path(page: page_number) %></li>
+    <% end %>
+  </ul>  
+</div>
+<br>
+
+<%= link_to 'new category', new_category_path, class: "button" %>

@@ -1,0 +1,126 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  background: image-url("background.png") repeat;
+  font-family: Arial;
+  height: 100%;
+  width: 100%;
+}
+
+#main-menu {
+  background: #000;
+  color: #fff;
+  width: 98%;
+  padding: 1%;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+#main-menu ul, .pagination ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+#main-menu li, .pagination li {
+  float: left;
+}
+#main-menu li:first-child {
+  font-weight: bold;
+}
+#main-menu li a, .pagination li a {
+  display: block;
+  padding: .5em;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+}
+#main-menu a:hover, .pagination a:hover {
+  color: #ccc;
+}
+#content {
+  width: 98%;
+  padding: 1%;
+}
+#content table {
+  width: 100%;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-collapse: collapse;
+}
+#content tbody, thead {
+  border: none;
+}
+#content td, th {
+  padding: .5em;
+  margin: 0;
+  border: 0;
+}
+#content th {
+  border-bottom: 2px solid #333;
+}
+#content h2 {
+  text-align: center;
+  margin: 1em 0;
+}
+#content td.actions {
+  text-align: right;
+}
+a.button {
+  margin: 0 .5em;
+  color: #000;
+  text-decoration: underline;
+}
+a:hover.button {
+  color: #333;
+}
+.pagination {
+  background: #333;
+  opacity: .85;
+  color: #fff;
+}
+.edit-form {
+  width: 30%;
+  min-width: 450px;
+  margin-bottom: 1em;
+  color: #333;
+}
+.field, .field_with_errors {
+  width: 100%;
+  margin: 0 0 1em 0;
+}
+.edit-form label {
+  display: block;
+  font-weight: bold;
+  padding: .5em 0;
+}
+.edit-form input, select, label, textarea {
+  width: 100%;
+  box-sizing : border-box;
+  margin: 0;
+  padding: 0;
+}
+input[type=checkbox] {
+  width: auto !important;
+}

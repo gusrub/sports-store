@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Sizes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Code</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sizes.each do |size| %>
+      <tr>
+        <td><%= size.id %></td>
+        <td><%= size.name %></td>
+        <td><%= size.code %></td>
+        <td class="actions">
+          <%= link_to 'edit', size_path(size), class: "button" %>
+          <%= link_to 'remove', size, method: :delete, data: { confirm: 'Are you sure?' }, class: "button" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="pagination">
+  <ul>
+    <% 1.upto(Size.pages) do |page_number| %>
+    <li><%= link_to page_number, sizes_path(page: page_number) %></li>
+    <% end %>
+  </ul>  
+</div>
+<br>
+
+<%= link_to 'new size', new_size_path, class: "button" %>
