@@ -24,7 +24,8 @@
 
 # Ignore dotenv files
 .env
-.env.*
+.env.test
+.env.development
 
 # Ignore db dump files
 *.dump
