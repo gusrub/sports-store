@@ -10,7 +10,7 @@ Run the following, make sure you have the header libraries of native components 
 
 We are using [dotenv](https://github.com/bkeepers/dotenv) for configuration of the application. Basically you have `.env` files, one per environment if you want like `.env.development`, or `.env.test` for testing, if you just have `.env` it will override others.
 
-Take a look at the included file for the required values and just change them.
+Take a look at the included `.env.example` file for the required values and change them, then rename the file accordingly to `.env.development` for instance. Note you also need a `.env.test` to run the tests.
 
 ### Initialization
 
