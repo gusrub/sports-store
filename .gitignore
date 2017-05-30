@@ -34,3 +34,6 @@
 
 # sublime text files
 *.sublime-workspace
+
+# public uploads
+/public/uploads
