@@ -33,18 +33,6 @@ class ProductVariantTest < ActiveSupport::TestCase
     assert_not_nil product_variant.errors[:price]
   end
 
-  test "it should validate presence of final price" do
-    product_variant = build(:product_variant, final_price: nil)
-    refute product_variant.valid?
-    assert_not_nil product_variant.errors[:final_price]
-  end  
-
-  test "it should validate numericality of final price" do
-    product_variant = build(:product_variant, final_price: -1)
-    refute product_variant.valid?
-    assert_not_nil product_variant.errors[:final_price]
-  end
-
   test "it should validate numericality of discount" do
     product_variant = build(:product_variant, discount: -1)
     refute product_variant.valid?

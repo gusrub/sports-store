@@ -11,7 +11,6 @@ class ProductVariant < ActiveRecord::Base
   validates :product, presence: true
   validates :stock, presence: true, numericality: { greater_than_or_equal_to: 0 }
   validates :price, presence: true, numericality: { greater_than_or_equal_to: 0 }
-  validates :final_price, presence: true, numericality: { greater_than_or_equal_to: 0 }
   validates :discount, numericality: { greater_than_or_equal_to: 0 }
   validates :sku, presence: true, uniqueness: true
 

@@ -1,28 +1,33 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+=== Installation
 
-Things you may want to cover:
+Run the following, make sure you have the header libraries of native components because postgres and nokogiri for instance require those:
 
-* Ruby version
+`bundle install`
 
-* System dependencies
+=== Configuration
 
-* Configuration
+We are using [dotenv](https://github.com/bkeepers/dotenv) for configuration of the application. Basically you have `.env` files, one per environment if you want like `.env.development`, or `.env.test` for testing, if you just have `.env` it will override others.
 
-* Database creation
+Take a look at the included file for the required values and just change them.
 
-* Database initialization
+=== Initialization
 
-* How to run the test suite
+After installing everything and setting up the environment make sure you create the database:
 
-* Services (job queues, cache servers, search engines, etc.)
+`rake db:reset`
 
-* Deployment instructions
+And that's it, now you can run it with the usual:
 
-* ...
+`rails server`
 
+=== Testing
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Prepare test database:
+
+`RAILS_ENV=test rake db:drop db:create db:migrate`
+
+Run tests:
+
+`RAILS_ENV=test rake test`
