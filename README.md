@@ -1,4 +1,4 @@
-Sports Store
+# Sports Store
 
 A sports online store demo where the challenge was to NOT use any CSS framework. Written in rails. 
 
